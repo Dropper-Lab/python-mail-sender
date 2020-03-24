@@ -42,14 +42,23 @@ logger.info('every package loaded and start logging')
 
 
 def send_mail(origin=mail_property.mail_address, target=mail_property.mail_address, subject='', message=''):
+    logger.info('send_mail: function started | origin=' + str(origin) + ' | target=' + str(target) + ' | subject=' + str(subject) + ' | message=' + str(message))
+
     smtp = smtplib.SMTP_SSL(mail_property.address, mail_property.port)
     smtp.ehlo()
     smtp.login(mail_property.username, mail_property.password)
+    logger.info('send_mail: connect and log-in to mail server with SMTP_SSL | smtp=' + str(smtp))
 
     msg = MIMEText(message)
     msg['Subject'] = subject
     msg['From'] = origin
     msg['To'] = target
+    logger.info('send_mail: make message content | msg=' + str(msg))
+
     smtp.sendmail(origin, target, msg.as_string())
+    logger.info('send_mail: mail sent')
 
     smtp.quit()
+    logger.info('send_mail: smtp connection closed')
+
+    logger.info('send_mail: function ended')
