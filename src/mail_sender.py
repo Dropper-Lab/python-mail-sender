@@ -1,4 +1,6 @@
 """
+version : v1.0.0
+
 MIT License
 
 Copyright (c) 2020 Dropper Lab
