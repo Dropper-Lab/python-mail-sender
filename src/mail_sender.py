@@ -44,7 +44,9 @@ logger.info('every package loaded and start logging')
 
 
 def send_mail(origin=mail_property.mail_address, target=mail_property.mail_address, subject='', message=''):
-    logger.info('send_mail: function started | origin=' + str(origin) + ' | target=' + str(target) + ' | subject=' + str(subject) + ' | message=' + str(message))
+    logger.info(
+        'send_mail: function started | origin=' + str(origin) + ' | target=' + str(target) + ' | subject=' + str(
+            subject) + ' | message=' + str(message))
 
     smtp = smtplib.SMTP_SSL(mail_property.address, mail_property.port)
     smtp.ehlo()
