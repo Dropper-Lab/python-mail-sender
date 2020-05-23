@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 """
 version : v1.0.0
 
